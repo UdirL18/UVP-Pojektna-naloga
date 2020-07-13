@@ -24,6 +24,7 @@
 %else:
   <blockquote>
     <h2>{{igra.trenutno_vprasanje()}}</h2>
+    <img src="/static/slike/1_kozasko.jpg" alt="slika 1" height="26" border="0"/>
   </blockquote>
 
   <table>
@@ -43,12 +44,12 @@
 <form action="/igra/" method="post">
     % if igra.stevilo_pravilnih() >= 4:
         <form action="/igra/" method="post"> 
-          <input type="radio" name="odgovor"> 0.1 <br>
-          <input type="radio" name="odgovor"> 0.2 <br>
-          <input type="radio" name="odgovor"> 0.3 <br>
-          <input type="radio" name="odgovor"> 0.4 <br>
-          <input type="radio" name="odgovor"> 0.5 <br>
-          <input type="radio" name="odgovor"> 0.6 <br>
+          <input type="radio" name="odgovor">'0.1'<br>
+          <input type="radio" name="odgovor">'0.2'<br>
+          <input type="radio" name="odgovor">'0.3'<br>
+          <input type="radio" name="odgovor">'0.4'<br>
+          <input type="radio" name="odgovor">'0.5'<br>
+          <input type="radio" name="odgovor">'0.6'<br>
           <button type="submit">Pošlji odgovor</button>
         </form>
     %else:
