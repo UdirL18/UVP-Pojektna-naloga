@@ -1,8 +1,10 @@
 import random
-from vprasanja import slovar, vprasanja_multiple_izbire1
+from vprasanja import slovar, vprasanja_multiple_izbire1, riziki #riziki_obroc, riziki_zoga, riziki_kiji, riziki_trak
 
-STEVILO_DOVOLJENIH_NAPAK = 4
-STEVILO_PRAVILNIH = 8
+STEVILO_DOVOLJENIH_NAPAK = 8 #potem spremeni na 3
+STEVILO_PRAVILNIH = 12
+KVIZ_MULTIPLE = 4
+KVIZ_RIZIKI = 8
 PRAVILEN_ODGOVOR = "+"
 NI_ODGOVORA = "0"
 NAPACEN_ODGOVOR = "-"
@@ -16,9 +18,13 @@ class Igra:
         self.pravilni_odgovori = 0
         self.vprasanja_mul = random.sample(list(vprasanja_multiple_izbire1), st_vprasanj)
         self.vprasanja = random.sample(list(slovar), st_vprasanj)
+        self.vprasanja_riziki = random.sample(list(riziki), 1)[0] #vrne npr "trak"
 
     def trenutno_vprasanje(self):
-        if self.pravilni_odgovori >= 4:
+        if self.pravilni_odgovori >= KVIZ_RIZIKI:
+            #ali obstaja bolj eleganten način?
+            return riziki.get(self.vprasanja_riziki) #vrne "Določi kriterije rizikov s trakom."
+        if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI):
             return self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne 'Koliko je vredna težina na sliki 11?'
         else:
             return self.vprasanja[self.trenutno_vprasanje_idx]
@@ -38,7 +44,9 @@ class Igra:
     def ugibaj(self, odgovor):
         if odgovor == "":
             return NI_ODGOVORA
-        if self.pravilni_odgovori >= 4: #vprasanja_multiple_izbire1['Koliko je vredna...?'] vrne '0.1'
+        if self.pravilni_odgovori >= KVIZ_RIZIKI:
+            pravilen_odgovor = True
+        if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI): #vprasanja_multiple_izbire1['Koliko je vredna...?'] vrne '0.1'
             pravilen_odgovor = vprasanja_multiple_izbire1[self.trenutno_vprasanje()] 
         else:    
             pravilen_odgovor = slovar[self.trenutno_vprasanje()]
