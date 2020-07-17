@@ -26,72 +26,36 @@ slovar = {"Kakšna je dolžina induvidualne sestave?":" 1:15 - 1:30",
 "Kolikšen je odbitek, če ima tekmovalka nekožnate bandaže?":"0.30"
 }
 
-#pod prvo možnostjo je naveden pravilni odgovor
-vprasanja_multiple_izbire = {
-    "Koliko je vredna težina na sliki1?":{"pravilen":"a", "odgovori":[0.1, 0.2, 0.3]},
-    "Koliko je vredna težina na sliki2?":{"pravilen":"b", "odgovori":[0.1, 0.2, 0.3]},
-    "Koliko je vredna težina na sliki3?":{"pravilen":"a", "odgovori":[0.2, 0.3, 0.4]},
-    "Koliko je vredna težina na sliki4?":{"pravilen":"b", "odgovori":[0.2, 0.3, 0.4]},
-    "Koliko je vredna težina na sliki5?":{"pravilen":"a", "odgovori":[0.3, 0.4, 0.5]},
-    "Koliko je vredna težina na sliki6?":{"pravilen":"a", "odgovori":[0.4, 0.5, 0.6]},
-    "Koliko je vredna težina na sliki7?":{"pravilen":"a", "odgovori":[0.2, 0.3, 0.4]},
-    "Koliko je vredna težina na sliki8?":{"pravilen":"b", "odgovori":[0.2, 0.3, 0.4]},
-    "Koliko je vredna težina na sliki9?":{"pravilen":"b", "odgovori":[0.3, 0.4, 0.5]},
-    "Koliko je vredna težina na sliki10?":{"pravilen":"b", "odgovori":[0.4, 0.5, 0.6]},    
-}
 
-oznacbe_odgovorov = ["a", "b", "c"]
-
-#a,b,a,b,a,a,a,b,b,b
-vprasanja_multiple = [
-    'Koliko je vredna težina na sliki1?\n(a) 0.1\n(b) 0.2\n(c) 0.3\n\n',
-    'Koliko je vredna težina na sliki2?\n(a) 0.1\n(b) 0.2\n(c) 0.3\n\n',
-    'Koliko je vredna težina na sliki3?\n(a) 0.2\n(b) 0.3\n(c) 0.4\n\n',
-    'Koliko je vredna težina na sliki4?\n(a) 0.2\n(b) 0.3\n(c) 0.4\n\n',
-    'Koliko je vredna težina na sliki5?\n(a) 0.3\n(b) 0.4\n(c) 0.5\n\n',
-    'Koliko je vredna težina na sliki6?\n(a) 0.4\n(b) 0.5\n(c) 0.6\n\n',
-    'Koliko je vredna težina na sliki7?\n(a) 0.2\n(b) 0.3\n(c) 0.4\n\n',
-    'Koliko je vredna težina na sliki8?\n(a) 0.2\n(b) 0.3\n(c) 0.4\n\n',
-    'Koliko je vredna težina na sliki9?\n(a) 0.3\n(b) 0.4\n(c) 0.5\n\n',
-    'Koliko je vredna težina na sliki10?\n(a) 0.4\n(b) 0.5\n(c) 0.6\n\n'
-]
-
-
-#resitve_multiple =[
-    #Igra(vprasanja_multiple[0],'a'),
-    #Igra(vprasanja_multiple[1],'b'),
-    #Igra(vprasanja_multiple[2],'a'),
-    #Igra(vprasanja_multiple[3],'b'),
-    #Igra(vprasanja_multiple[4],'a'),
-    #Igra(vprasanja_multiple[5],'a'),
-    #Igra(vprasanja_multiple[6],'a'),
-    #Igra(vprasanja_multiple[6],'a'),
-    #Igra(vprasanja_multiple[7],'b'),
-    #Igra(vprasanja_multiple[8],'b'),
-    #Igra(vprasanja_multiple[9],'b')
-#]
-
-#poiskati moraš še 10 slik in oddati pravilne odgovore
+#NE DELA PRAVILNO, TUDI V igra.tpl NE ŽELIM IMETI NAPISANO '0.1' AMPAK 0.1
 vprasanja_multiple_izbire1 = {"Koliko je vredna težina na sliki 1?":"0.1",
     "Koliko je vredna težina na sliki 2?":"0.1",
-    "Koliko je vredna težina na sliki 3?":"0.1",
-    "Koliko je vredna težina na sliki 4?":"0.1",
-    "Koliko je vredna težina na sliki 5?":"0.1",
-    "Koliko je vredna težina na sliki 6?":"0.1",
-    "Koliko je vredna težina na sliki 7?":"0.1",
-    "Koliko je vredna težina na sliki 8?":"0.1",
-    "Koliko je vredna težina na sliki 9?":"0.1",
-    "Koliko je vredna težina na sliki 10?":"0.1",
-    "Koliko je vredna težina na sliki 11?":"0.1",
-    "Koliko je vredna težina na sliki 12":"0.1",
-    "Koliko je vredna težina na sliki 13?":"0.1",
-    "Koliko je vredna težina na sliki 14?":"0.1",
-    "Koliko je vredna težina na sliki 15?":"0.1",
-    "Koliko je vredna težina na sliki 16?":"0.1",
-    "Koliko je vredna težina na sliki 17?":"0.1",
-    "Koliko je vredna težina na sliki 18?":"0.1",
-    "Koliko je vredna težina na sliki 19?":"0.1",
-    "Koliko je vredna težina na sliki 20?":"0.1"}
+    "Koliko je vredna težina na sliki 3?":"0.4",
+    "Koliko je vredna težina na sliki 4?":"0.2",
+    "Koliko je vredna težina na sliki 5?":"0.3",
+    "Koliko je vredna težina na sliki 6?":"0.3",
+    "Koliko je vredna težina na sliki 7?":"0.3",
+    "Koliko je vredna težina na sliki 8?":"0.5",
+    "Koliko je vredna težina na sliki 9?":"0.3",
+    "Koliko je vredna težina na sliki 10?":"0.5",
+    "Koliko je vredna težina na sliki 11?":"0.5",
+    "Koliko je vredna težina na sliki 12":"0.3",
+    "Koliko je vredna težina na sliki 13?":"0.4",
+    "Koliko je vredna težina na sliki 14?":"0.3",
+    "Koliko je vredna težina na sliki 15?":"0.5",
+    "Koliko je vredna težina na sliki 16?":"0.5",
+    "Koliko je vredna težina na sliki 17?":"0.4",
+    "Koliko je vredna težina na sliki 18?":"0.2",
+    "Koliko je vredna težina na sliki 19?":"0.2",
+    "Koliko je vredna težina na sliki 20?":"0.4"}
+
+riziki = {"obroc":"Določi kriterije rizikov z obročem.",
+        "zoga":"Določi kriterije rizikov z žogo.",
+        "kiji":"Določi kriterije rizikov s kiji.",
+        "trak":"Določi kriterije rizikov s trakom."}
+
+
+
 
     
     
