@@ -1,7 +1,7 @@
 import random
-from vprasanja import slovar, vprasanja_multiple_izbire1, riziki #riziki_obroc, riziki_zoga, riziki_kiji, riziki_trak
+from vprasanja import slovar, vprasanja_multiple_izbire1, riziki 
 
-STEVILO_DOVOLJENIH_NAPAK = 8 #potem spremeni na 3
+STEVILO_DOVOLJENIH_NAPAK = 5 #potem spremeni na 3
 STEVILO_PRAVILNIH = 12
 KVIZ_MULTIPLE = 4
 KVIZ_RIZIKI = 8
@@ -16,18 +16,21 @@ class Igra:
     def __init__(self, st_vprasanj):
         self.trenutno_vprasanje_idx = 0
         self.pravilni_odgovori = 0
-        self.vprasanja_mul = random.sample(list(vprasanja_multiple_izbire1), st_vprasanj)
-        self.vprasanja = random.sample(list(slovar), st_vprasanj)
-        self.vprasanja_riziki = random.sample(list(riziki), 1)[0] #vrne npr "trak"
+        self.vprasanja_mul = random.sample(list(vprasanja_multiple_izbire1), st_vprasanj) #[1, 2,...]
+        self.vprasanja = random.sample(list(slovar), st_vprasanj) #[5, 7, ...]
+        self.vprasanja_riziki = random.sample(list(riziki), 1) #želim da bo na eno igro samo en video (vrne npr [1])
 
     def trenutno_vprasanje(self):
         if self.pravilni_odgovori >= KVIZ_RIZIKI:
-            #ali obstaja bolj eleganten način?
-            return riziki.get(self.vprasanja_riziki) #vrne "Določi kriterije rizikov s trakom."
+            # želim da izpiše vseh 5 (oz 4) vprašanja
+            vpr_riz = int(self.vprasanja_riziki[0]) # vrne npr 1
+            return riziki.get(vpr_riz) # vrne {"tip": "tip_2", "vprasanje": [{vpr:[odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
         if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI):
-            return self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne 'Koliko je vredna težina na sliki 11?'
+            vpr_mul = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
+            return vprasanja_multiple_izbire1.get(vpr_mul) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': 0.4, 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
         else:
-            return self.vprasanja[self.trenutno_vprasanje_idx]
+            vpr_0 = self.vprasanja[self.trenutno_vprasanje_idx] #vrne npr 4
+            return slovar.get(vpr_0) #{'tip': 'tip_0', 'vprasanje': '?', 'odgovor': ''}
 
     def stevilo_napacnih(self):
         return self.trenutno_vprasanje_idx - self.pravilni_odgovori
@@ -44,12 +47,15 @@ class Igra:
     def ugibaj(self, odgovor):
         if odgovor == "":
             return NI_ODGOVORA
-        if self.pravilni_odgovori >= KVIZ_RIZIKI:
-            pravilen_odgovor = True
-        if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI): #vprasanja_multiple_izbire1['Koliko je vredna...?'] vrne '0.1'
-            pravilen_odgovor = vprasanja_multiple_izbire1[self.trenutno_vprasanje()] 
+    # TO NI KUL :( 
+       # if self.pravilni_odgovori >= KVIZ_RIZIKI:
+       #     seznam_vpr = self.trenutno_vprasanje.get('vprasanje') # [{vpr:odg}, {vpr:odg}, ...]
+       #     for slovar_vpr in seznam_vpr:
+       #         return pravilen_odgovor = slovar_vpr.values() # vrne dict_values([['','',..]])
+        if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI): 
+            pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne npr 0.4
         else:    
-            pravilen_odgovor = slovar[self.trenutno_vprasanje()]
+            pravilen_odgovor = self.trenutno_vprasanje().get("odgovor")
         self.trenutno_vprasanje_idx += 1
         if odgovor == pravilen_odgovor:
             self.pravilni_odgovori += 1
@@ -63,6 +69,7 @@ class Igra:
 
 def nova_igra():
     return Igra(STEVILO_PRAVILNIH + STEVILO_DOVOLJENIH_NAPAK)
+# STEVILO_PRAVILNIH + STEVILO_DOVOLJENIH_NAPAK ne sme biti večje od št vprašanj v slovarjih
 
 class Kviz:
     def __init__(self):
