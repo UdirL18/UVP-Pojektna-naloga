@@ -67,8 +67,26 @@
         </form>
 
 
-   <!--VEČ PRAVILNIH ODGOVOROV % elif igra.trenutno_vprasanje().get("tip") == "tip_2": -->
-    
+   <!--VEČ PRAVILNIH ODGOVOROV -->
+    % elif igra.trenutno_vprasanje().get("tip") == "tip_2": 
+        
+        <blockquote>
+          %for slovar_vpr in trenutno_vprasanje().get("vprasanje"):
+              <h2>{{slovar_vpr.get("vpr")}}</h2>
+          %end
+        </blockquote> 
+
+        <iframe width="420" height="315"
+          src={{trenutno_vprasanje().get("video")}}>
+        </iframe> 
+
+        <form action="/igra/">
+            % for odg in trenutno_vprasanje().get("mozni_odg"):
+              <input type="radio" name="odgovor"> odg <br>
+            %end
+            <button type="submit">Odgovori</button>
+          </form>                  
+
     % end
 
 %end
