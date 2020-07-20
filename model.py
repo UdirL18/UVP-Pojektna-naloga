@@ -24,7 +24,7 @@ class Igra:
         if self.pravilni_odgovori >= KVIZ_RIZIKI:
             # želim da izpiše vseh 5 (oz 4) vprašanja
             vpr_riz = int(self.vprasanja_riziki[0]) # vrne npr 1
-            return riziki.get(vpr_riz) # vrne {"tip": "tip_2", "vprasanje": [{vpr:[odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
+            return riziki.get(vpr_riz) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
         if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI):
             vpr_mul = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
             return vprasanja_multiple_izbire1.get(vpr_mul) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': 0.4, 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
@@ -48,10 +48,10 @@ class Igra:
         if odgovor == "":
             return NI_ODGOVORA
     # TO NI KUL :( 
-       # if self.pravilni_odgovori >= KVIZ_RIZIKI:
-       #     seznam_vpr = self.trenutno_vprasanje.get('vprasanje') # [{vpr:odg}, {vpr:odg}, ...]
-       #     for slovar_vpr in seznam_vpr:
-       #         return pravilen_odgovor = slovar_vpr.values() # vrne dict_values([['','',..]])
+        if self.pravilni_odgovori >= KVIZ_RIZIKI:
+            seznam_vpr = self.trenutno_vprasanje.get('vprasanje') # [{'vpr':'','odg':[]}, {vpr:odg}, ...]
+            for slovar_vpr in seznam_vpr:
+                pravilen_odgovor = slovar_vpr.get("odg") 
         if self.pravilni_odgovori in range(KVIZ_MULTIPLE, KVIZ_RIZIKI): 
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne npr 0.4
         else:    
