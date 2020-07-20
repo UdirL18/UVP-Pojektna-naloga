@@ -60,9 +60,10 @@
         <img src= {{igra.trenutno_vprasanje().get("slika")}} width="280" height="320" style="float:left";margin:50px 0px">
         
         <form action="/igra/" method="post"> 
-          <input type="radio" name="odgovor">{{igra.trenutno_vprasanje().get("mozni_odg")[0]}}<br>
-          <input type="radio" name="odgovor">{{igra.trenutno_vprasanje().get("mozni_odg")[1]}}<br>
-          <input type="radio" name="odgovor">{{igra.trenutno_vprasanje().get("mozni_odg")[2]}}<br>
+          % for vrednost in igra.trenutno_vprasanje().get("mozni_odg"):
+            <input type="radio" value="{{vrednost}}" 
+            name="odgovor">{{vrednost}}<br>
+          % end
           <button type="submit">Pošlji odgovor</button>
         </form>
 
@@ -71,21 +72,21 @@
     % elif igra.trenutno_vprasanje().get("tip") == "tip_2": 
         
         <blockquote>
-          %for slovar_vpr in trenutno_vprasanje().get("vprasanje"):
+          %for slovar_vpr in igra.trenutno_vprasanje().get("vprasanje"):
               <h2>{{slovar_vpr.get("vpr")}}</h2>
           %end
         </blockquote> 
 
-        <iframe width="420" height="315"
-          src={{trenutno_vprasanje().get("video")}}>
+        <iframe width="420" height="315" src={{igra.trenutno_vprasanje().get("video")}} 
+          frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
         </iframe> 
 
-        <form action="/igra/">
-            % for odg in trenutno_vprasanje().get("mozni_odg"):
-              <input type="radio" name="odgovor"> odg <br>
+        <form action="/igra/" method="post">
+            % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
+              <input type="checkbox" name="odgovor" value="{{odg}}"> {{odg}} <br>
             %end
             <button type="submit">Odgovori</button>
-          </form>                  
+        </form>                   
 
     % end
 
