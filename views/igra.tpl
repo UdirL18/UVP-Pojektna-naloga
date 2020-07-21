@@ -4,21 +4,25 @@
   <h1>Kviz</h1>
 
 %if poskus == model.ZMAGA:
-  <h1>ZMAGA!</h1>
-  <b>Za začetek nove igre kliknite na gumb.</b>
+  <h1>ČESTITAMO! ZMAGA :)</h1>
+  <h3>Za začetek nove igre kliknite na gumb <i>Nova igra</i>.</h3>
   <h3> </h3>
 
   <form action="/nova_igra/" method="post">
-    <button type="submit">Nova igra</button>
+    <div id="gumb">
+      <button type="submit">Nova igra</button>
+    </div>
   </form>
 
 %elif poskus == model.PORAZ:
-  <h1>IZGUBILI STE!</h1>
-  <b>Za začetek nove igre kliknite na gumb Nova igra.</b>
+  <h1>O, NE ... IZGUBILI STE :(</h1>
+  <h3>Za začetek nove igre kliknite na gumb <i>Nova igra</i>. Ponovno preizkusite svojo srečo.</h3>
   <h3> </h3>
 
   <form action="/nova_igra/" method="post">
-    <button type="submit">Nova igra</button>
+    <div id="gumb">
+      <button type="submit">Nova igra</button>
+    </div>
   </form>
 
 %else:
@@ -59,7 +63,7 @@
             <h2>{{igra.trenutno_vprasanje().get("vprasanje")}}</h2>
         </blockquote>
 
-        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="280" height="320">
+        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="180" height="220">
         
         <form action="/igra/" method="post"> 
           % for vrednost in igra.trenutno_vprasanje().get("mozni_odg"):
@@ -78,7 +82,7 @@
     % elif igra.trenutno_vprasanje().get("tip") == "tip_2": 
 
         <div id="video">
-          <iframe width="420" height="315" src={{igra.trenutno_vprasanje().get("video")}} 
+          <iframe width="920" height="580" src={{igra.trenutno_vprasanje().get("video")}} 
             frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
           </iframe>
         </div>  
