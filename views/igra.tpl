@@ -5,7 +5,7 @@
 
 %if poskus == model.ZMAGA:
   <h1>ZMAGA!</h1>
-  <b>Za začetek nove igre kliknite na gumb Nova igra.</b>
+  <b>Za začetek nove igre kliknite na gumb.</b>
   <h3> </h3>
 
   <form action="/nova_igra/" method="post">
@@ -45,8 +45,10 @@
         </blockquote>
 
         <form action="/igra/" method="post">
-            Odgovor: <input type="text" name="odgovor">
-            <button type="submit">Pošlji odgovor</button>
+            <h3>Odgovor: <input type="text" name="odgovor"></h3>
+            <div id="gumb">
+              <button type="submit">Pošlji odgovor</button>
+            </div>
         </form>
 
     
@@ -57,36 +59,45 @@
             <h2>{{igra.trenutno_vprasanje().get("vprasanje")}}</h2>
         </blockquote>
 
-        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="280" height="320" style="float:left";margin:50px 0px">
+        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="280" height="320">
         
         <form action="/igra/" method="post"> 
           % for vrednost in igra.trenutno_vprasanje().get("mozni_odg"):
+          <div id="mozniOdgovori">
             <input type="radio" value="{{vrednost}}" 
             name="odgovor">{{vrednost}}<br>
+          </div>
           % end
-          <button type="submit">Pošlji odgovor</button>
+          <div id="gumb">
+            <button type="submit">Pošlji odgovor</button>
+          </div>
         </form>
 
 
    <!--VEČ PRAVILNIH ODGOVOROV -->
     % elif igra.trenutno_vprasanje().get("tip") == "tip_2": 
-        
+
+        <div id="video">
+          <iframe width="420" height="315" src={{igra.trenutno_vprasanje().get("video")}} 
+            frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
+          </iframe>
+        </div>  
+
         <blockquote>
           %for slovar_vpr in igra.trenutno_vprasanje().get("vprasanje"):
-              <h2>{{slovar_vpr.get("vpr")}}</h2>
-          %end
-        </blockquote> 
-
-        <iframe width="420" height="315" src={{igra.trenutno_vprasanje().get("video")}} 
-          frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
-        </iframe> 
-
-        <form action="/igra/" method="post">
-            % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
-              <input type="checkbox" name="odgovor" value="{{odg}}"> {{odg}} <br>
-            %end
-            <button type="submit">Odgovori</button>
-        </form>                   
+            <h4>{{slovar_vpr.get("vpr")}}</h4> 
+            <form action="/igra/" method="post">
+              % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
+                <div id="mozniOdgovori2">
+                  <input type="checkbox" name="odgovor" value="{{odg}}"> {{odg}} <br>
+                </div>
+              %end
+            </form> 
+          % end
+          <form action="/igra/" method="post">
+          <button type="submit">Odgovori</button>
+          </form>
+        </blockquote>                  
 
     % end
 
