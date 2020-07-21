@@ -24,36 +24,15 @@ def pokazi_igro():
 @bottle.post("/igra/")
 def ugibaj():
     id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
-    odgovor = bottle.request.forms.getunicode("odgovor")
+    # if stanje == KVIZ_RIZIKI
+    if kviz.igre[id_igre][1] == "R": 
+        #odgovori tip_2 # vrednost for ključ, vrednost in slovar
+        odgovor = [vrednost for polje, vrednost in bottle.request.forms.allitems()] #FormsDict
+    else:
+        odgovor = bottle.request.forms.getunicode("odgovor")
     kviz.ugibaj(id_igre, odgovor)
     return bottle.redirect("/igra/")
 
-#@bottle.post("/nov_level/")
-#def nov_level():
-    #id_igre = kviz.nov_lavel() #vrne id igre
-    #bottle.response.set_cookie("idigre", "idigre{0}".format(id_igre), path="/")
-    #bottle.redirect("/kviz_multiple/") #nas usmeri k igri
-
-#@bottle.get("/igra_mul/")
-#def pokazi_igro_mul():
-#    id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
-#    igra, poskus = kviz.igre[id_igre]
-#    return bottle.template("igra_mul.tpl", igra=igra, poskus=poskus)
-
-#@bottle.post("/igra/")
-#def ugibaj_mul():
-#    id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
-#    odgovor = bottle.request.forms.getunicode("odgovor")
-#    kviz.ugibaj(id_igre, odgovor)
-#    bottle.redirect("/igra_mul/")
-
-#@bottle.get('/kviz_multiple/')
-#def kviz_multiple():
-#    id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
-#    level, poskus = kviz.igre[id_igre]
-#    return bottle.template("multiple.tpl", level=level, poskus=poskus)
     
-
-
 
 bottle.run(reloader=True, debug=True)
