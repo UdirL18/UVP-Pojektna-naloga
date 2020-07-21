@@ -1,10 +1,18 @@
 %import model
 %rebase("base.tpl", title="Kviz")
 
-  <h1>Kviz</h1>
+  <h1>Kviz 
+    <a href="https://www.gymnastics.sport/publicdir/rules/files/en_RG%20CoP%202017-2020%20with%20Errata%20Dec.%2017.pdf">
+      <img src="https://image.slidesharecdn.com/codigo20132016-120327205544-phpapp02/95/code-of-pointsgr-2013-2016-english-1-728.jpg?cb=1333531041" 
+      width=8% height=8% style="float: left">
+    </a>
+  </h1>
+
+  <h4> Pokukajte v pravilnik. </h4>
+
 
 %if poskus == model.ZMAGA:
-  <h1>ČESTITAMO! ZMAGA :)</h1>
+  <h1>ČESTITAMO! ZMAGALI STE :)</h1>
   <h3>Za začetek nove igre kliknite na gumb <i>Nova igra</i>.</h3>
   <h3> </h3>
 
@@ -48,6 +56,10 @@
             <h2>{{igra.trenutno_vprasanje().get("vprasanje")}}</h2>
         </blockquote>
 
+        <blockquote>
+            <h3><small>Primer odgovora: {{igra.trenutno_vprasanje().get("primer_odg")}}</small></h3>
+        </blockquote>
+
         <form action="/igra/" method="post">
             <h3>Odgovor: <input type="text" name="odgovor"></h3>
             <div id="gumb">
@@ -63,7 +75,7 @@
             <h2>{{igra.trenutno_vprasanje().get("vprasanje")}}</h2>
         </blockquote>
 
-        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="180" height="220">
+        <img src= {{igra.trenutno_vprasanje().get("slika")}} width="180" height="220"> 
         
         <form action="/igra/" method="post"> 
           % for vrednost in igra.trenutno_vprasanje().get("mozni_odg"):
@@ -72,6 +84,7 @@
             name="odgovor">{{vrednost}}<br>
           </div>
           % end
+          
           <div id="gumb">
             <button type="submit">Pošlji odgovor</button>
           </div>
@@ -98,6 +111,7 @@
               %end
             </form> 
           % end
+          <h4> Še enkrat preverite odgovore, drugače boste morali ponovno rešiti nalogo. </h4>
           <form action="/igra/" method="post">
           <button type="submit">Odgovori</button>
           </form>
