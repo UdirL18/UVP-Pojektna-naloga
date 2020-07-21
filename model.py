@@ -1,7 +1,7 @@
 import random
-from vprasanja import slovar, vprasanja_multiple_izbire1, riziki 
+from vprasanja import slovar, vprasanja_multiple_izbire, riziki 
 
-STEVILO_DOVOLJENIH_NAPAK = 5 #potem spremeni na 3
+STEVILO_DOVOLJENIH_NAPAK = 5 
 STEVILO_PRAVILNIH = 9
 STEVILO_KVIZ_MULTIPLE = 4
 STEVILO_KVIZ_RIZIKI = 8
@@ -18,7 +18,7 @@ class Igra:
     def __init__(self, st_vprasanj):
         self.trenutno_vprasanje_idx = 0
         self.pravilni_odgovori = 0
-        self.vprasanja_mul = random.sample(list(vprasanja_multiple_izbire1), st_vprasanj) #[1, 2,...]
+        self.vprasanja_mul = random.sample(list(vprasanja_multiple_izbire), st_vprasanj) #[1, 2,...]
         self.vprasanja = random.sample(list(slovar), st_vprasanj) #[5, 7, ...]
         self.vprasanja_riziki = random.sample(list(riziki), 1) #želim da bo na eno igro samo en video (vrne npr [1])
 
@@ -29,10 +29,10 @@ class Igra:
             return riziki.get(vpr_riz) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
         if self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI):
             vpr_mul = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
-            return vprasanja_multiple_izbire1.get(vpr_mul) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': '0.4', 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
+            return vprasanja_multiple_izbire.get(vpr_mul) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': '0.4', 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
         else:
             vpr_0 = self.vprasanja[self.trenutno_vprasanje_idx] #vrne npr 4
-            return slovar.get(vpr_0) #{'tip': 'tip_0', 'vprasanje': '?', 'odgovor': ''}
+            return slovar.get(vpr_0) #{'tip': 'tip_0', 'vprasanje': '?', 'primer_odg':'', 'odgovor': ''}
 
     def stevilo_napacnih(self):
         return self.trenutno_vprasanje_idx - self.pravilni_odgovori
@@ -77,6 +77,7 @@ class Igra:
             if self.poraz():
                 return PORAZ
             return NAPACEN_ODGOVOR
+
 
 def nova_igra():
     return Igra(STEVILO_PRAVILNIH + STEVILO_DOVOLJENIH_NAPAK)
