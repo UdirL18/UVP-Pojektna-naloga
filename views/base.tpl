@@ -38,13 +38,6 @@
             text-align: center;
         }
 
-        #mozniOdgovori2
-        {
-            font-size: 15px;
-            font-family: "Comic Sans MS";
-            text-align: left;
-            display: block;
-        }
 
         #video
         {
