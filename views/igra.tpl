@@ -84,7 +84,7 @@
             name="odgovor">{{vrednost}}<br>
           </div>
           % end
-          
+
           <div id="gumb">
             <button type="submit">Pošlji odgovor</button>
           </div>
@@ -101,20 +101,21 @@
         </div>  
 
         <blockquote>
+        
+        <form action="/igra/" method="post">
           %for slovar_vpr in igra.trenutno_vprasanje().get("vprasanje"):
             <h4>{{slovar_vpr.get("vpr")}}</h4> 
-            <form action="/igra/" method="post">
               % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
                 <div id="mozniOdgovori2">
                   <input type="checkbox" name="odgovor" value="{{odg}}"> {{odg}} <br>
                 </div>
               %end
-            </form> 
-          % end
-          <h4> Še enkrat preverite odgovore, drugače boste morali ponovno rešiti nalogo. </h4>
-          <form action="/igra/" method="post">
+          % end        
           <button type="submit">Odgovori</button>
-          </form>
+        </form>
+        
+        <h4> Še enkrat preverite odgovore, drugače boste morali ponovno rešiti nalogo. </h4>
+        
         </blockquote>                  
 
     % end
