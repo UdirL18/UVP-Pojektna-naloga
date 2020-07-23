@@ -24,10 +24,10 @@ def pokazi_igro():
 @bottle.post("/igra/")
 def ugibaj():
     id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
-    # if stanje == KVIZ_RIZIKI
-    if kviz.igre[id_igre][1] == "R": 
-        #odgovori tip_2 # vrednost for ključ, vrednost in slovar
-        odgovor = [vrednost for polje, vrednost in bottle.request.forms.allitems()] #FormsDict
+    # if stanje == 'R'
+    if kviz.igre[id_igre][1] == model.KVIZ_RIZIKI: 
+        #odgovori tip_2 # vrednost for ključ, vrednost in [('k', 'v1'), ('k', 'v2'),..] v1 so vsi odgovori na eno vpr
+        odgovor = [vrednost for polje, vrednost in bottle.request.forms.allitems()] #['v1', 'v2']
     else:
         odgovor = bottle.request.forms.getunicode("odgovor")
     kviz.ugibaj(id_igre, odgovor)
