@@ -7,7 +7,7 @@ Program preverja znanje [F.I.G](https://www.gymnastics.sport/site/discipline.php
 - **Vprašanja multiple izbire** preverjajo znanje težin s telesom. Igralec mora **štirikrat** uspešno izbrati pravilen odgovor, da lahko napreduje na naslednji tip vprašanj.
 - **Vprašanja večih pravilnih odgovorov** preverjajo znanje kriterijev pri dinamičnih elementih z rotacijo oziroma tako imenovanih rizikih. Igralec mora pravilno odgovoriti na vsa vprašanja, ki se nanašajo na sestavo iz posnetka.
 
-Igra se zaključi, ko igralec pravilno odgovori na **9** vprašanj, pri tem pa lahko napačno odgovori na **5** vprašanj. 
+Igra se zaključi, ko igralec pravilno odgovori na **9** vprašanj, pri tem pa lahko napačno odgovori na **5** vprašanj. V primeru da se sproži *error* program igralcu prikaže stran, ki mu ponudi, da ponovno začne igro.
 
 ## Navodila za zagon programa
 Prenesite datoteke na tem repozitoriju in poženite *kviz.py* s pomočjo *Run Python File in Terminal*. V terminalu sledite povezavi: 
