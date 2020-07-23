@@ -52,19 +52,31 @@ class Igra:
     def poraz(self):
         return self.stevilo_napacnih() > STEVILO_DOVOLJENIH_NAPAK
 
-    def ugibaj(self, odgovor):
-        if odgovor == "":
-            return NI_ODGOVORA #vrne "0"
+    def enakost_odgovorov(self, odgovor):
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             seznam_vpr = self.trenutno_vprasanje().get('vprasanje') # [{'vpr':'','odg':[]}, {vpr:odg}, ...]
             for slovar_vpr in seznam_vpr:
                 pravilen_odgovor = slovar_vpr.get("odg") 
         if self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI): 
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne npr 0.4
-        else:    
-            pravilen_odgovor = self.trenutno_vprasanje().get("odgovor")
+        else: 
+            pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne list 
         self.trenutno_vprasanje_idx += 1
-        if odgovor == pravilen_odgovor:
+        if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
+            #iz serverja odgovori: [['','','',],[odgovori_na_eno_vpr],[]].
+            for odg_na_eno_vpr in odgovor:
+                return odg_na_eno_vpr == pravilen_odgovor                
+        elif self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI):
+            return odgovor == pravilen_odgovor #vrne True  
+        else:             
+            return any(x.upper().replace(" ","") == odgovor.upper().replace(" ","") for x in pravilen_odgovor) 
+            #odgovorom, ki pridejo iz serverja ostranim space in jih dam v velike črke, 
+            #to naredim še za odgovore iz slovarja, če bo kdo slučajno kdaj dodajal vprašanja
+
+    def ugibaj(self, odgovor):
+        if odgovor == "":
+            return NI_ODGOVORA #vrne "0"
+        if self.enakost_odgovorov(odgovor) == True:
             self.pravilni_odgovori += 1
             if self.tip_2(): 
                 return KVIZ_RIZIKI
