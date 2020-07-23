@@ -1,9 +1,10 @@
+#===========================================================================================
 #Spletni vmesnik
+#===========================================================================================
 import model
 import bottle
 
 kviz = model.Kviz()
-#spremeni index.tpl tudi def index je lah neki drugega
 @bottle.get("/")
 def index():
     return bottle.template("index.tpl") #prva stran- navodila
@@ -27,7 +28,7 @@ def ugibaj():
     # if stanje == 'R'
     if kviz.igre[id_igre][1] == model.KVIZ_RIZIKI: 
         #odgovori tip_2 # vrednost for ključ, vrednost in [('k', 'v1'), ('k', 'v2'),..] v1 so vsi odgovori na eno vpr
-        odgovor = [vrednost for polje, vrednost in bottle.request.forms.allitems()] #['v1', 'v2']
+        odgovor = [(polje, vrednost) for polje, vrednost in bottle.request.forms.allitems()] #[('odgovor_0', '3 rotacije'), ('odgovor_1', '3 rotacije'), ('odgovor_2', 'met z rotacijo okoli svoje osi (diametralni met)'), ('odgovor_3', '4 rotacije'), ('odgovor_4', 'met brez pomoči rok')]
     else:
         odgovor = bottle.request.forms.getunicode("odgovor")
     kviz.ugibaj(id_igre, odgovor)
