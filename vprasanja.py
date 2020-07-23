@@ -2,30 +2,30 @@
 # VPRAŠANJA OPISNIH ODGOVOROV
 #==============================================================================================
 #moram napisati še primere odgovorov
-slovar = {1:{"tip":"tip_0", "vprasanje": "Kolikšna je dolžina induvidualne sestave?", "primer_odg": "m:ss - m:ss", "odgovor": " 1:15 - 1:30"},
-2:{"tip": "tip_0", "vprasanje": "Kakšen je trenutni program za induvidualne tekmovake?", "primer_odg": "Naštej rekvizite po vrsti, kot se tekmujejo na F.I.G. tekmovanjih.", "odgovor": "obroč, žoga, kiji, trak"},
-3:{"tip": "tip_0", "vprasanje": "Kolikšna je dolžina skupinske sestave?", "primer_odg": "m:ss - m:ss", "odgovor": "2:15 - 2:30"},
-4:{"tip": "tip_0", "vprasanje": "Kakšen je program za skupinske sestave?", "primer_odg": "3+2, 5, 6, 3+3", "odgovor": "3+2, 5"},
-5:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za predolgo glasbo'?", "primer_odg": "0.10", "odgovor": "0.05"},
-6:{"tip": "tip_0", "vprasanje": "Kolikšna je dovoljena dolžina glasbenega uvoda?", "primer_odg": "n sekunde", "odgovor": "4 sekunde"},
-7:{"tip": "tip_0", "vprasanje": "Kdo odbije 'odbitek za predolg glasbeni uvod'?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "E1, E2"},
-8:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za predolg glasbeni uvod'?", "primer_odg": "0.10", "odgovor": "0.30"},
-9:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neprimerno glasbo' (npr. sirene, motor, itd.)?", "primer_odg": "0.10", "odgovor": "0.50"},
-10:{"tip": "tip_0", "vprasanje": "Koliko od štirih glasb, na katere tekmovalka izvaja vajo, lahko vsebuje besedilo (melodija s petjem)?", "primer_odg": "4", "odgovor": "2"},
-11:{"tip": "tip_0", "vprasanje": "Kdo odbija odbitke, v primeru ko glasba ni v skladu s pravilnikom?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "D1"},
-12:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovalka uporabi dodatno glasbo s petjem?", "primer_odg": "0.01", "odgovor": "1.00"},
-13:{"tip": "tip_0", "vprasanje": "Kdo sodi težine s telesom in plesne korake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "D1, D2"},
-14:{"tip": "tip_0", "vprasanje": "Kdo sodi rizike in težine z rekvizitom?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "D3, D4"},
-15:{"tip": "tip_0", "vprasanje": "Kdo sodi artistične komponente sestave?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "E1, E2"},
-16:{"tip": "tip_0", "vprasanje": "Kdo sodi izvedbene napake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": "E3, E4, E5, E6"},
-17:{"tip": "tip_0", "vprasanje": "Na kateri del ocene se lahko pritoži trener?", "primer_odg": "D, E", "odgovor": "D"},
-18:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za prestop'?", "primer_odg": "0.10", "odgovor": "0.30"},
-19:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neustrezen rekvizit'?", "primer_odg": "0.10", "odgovor": "0.50"},
-20:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovani dres ne ustreza zahtevam?", "primer_odg": "0.10", "odgovor": "0.30"},
-21:{"tip": "tip_0", "vprasanje": "Ali lahko tekmovalke med sestavo komunicirajo?", "primer_odg": "da", "odgovor": "ne"},
-22:{"tip": "tip_0", "vprasanje": "Ali trener med izvajanjem sestave lahko podaja napotke tekmovalki?", "primer_odg": "ne", "odgovor": "ne"},
-23:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če trenerka nakaže vajo tekmovalkam, med tem ko le-te tekmujejo?", "primer_odg": "0.10", "odgovor": "0.50"},
-24:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če ima tekmovalka nekožnate bandaže?", "primer_odg": "0.10", "odgovor": "0.30"}
+slovar = {1:{"tip":"tip_0", "vprasanje": "Kolikšna je dolžina induvidualne sestave?", "primer_odg": "m:ss-m:ss", "odgovor": ["1:15-1:30"]},
+2:{"tip": "tip_0", "vprasanje": "Kakšen je trenutni program za induvidualne tekmovake?", "primer_odg": "Naštej rekvizite po vrsti, kot se tekmujejo na F.I.G. tekmovanjih.", "odgovor": ["OBROČ,ŽOGA,KIJI,TRAK"]}, 
+3:{"tip": "tip_0", "vprasanje": "Kolikšna je dolžina skupinske sestave?", "primer_odg": "m:ss - m:ss", "odgovor": ["2:15-2:30"]},
+4:{"tip": "tip_0", "vprasanje": "Kakšen je program za skupinske sestave?", "primer_odg": "3+2, 5, 6, 3+3", "odgovor": ["3+2,5", "5,3+2"]},
+5:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za predolgo glasbo'?", "primer_odg": "0.10", "odgovor": ["0.05"]},
+6:{"tip": "tip_0", "vprasanje": "Kolikšna je dovoljena dolžina glasbenega uvoda?", "primer_odg": "n sekunde", "odgovor": ["4sekunde", "4s", "4"] },
+7:{"tip": "tip_0", "vprasanje": "Kdo odbije 'odbitek za predolg glasbeni uvod'?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E1,E2", "E1,E2"]},
+8:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za predolg glasbeni uvod'?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
+9:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neprimerno glasbo' (npr. sirene, motor, itd.)?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
+10:{"tip": "tip_0", "vprasanje": "Koliko od štirih glasb, na katere tekmovalka izvaja vajo, lahko vsebuje besedilo (melodija s petjem)?", "primer_odg": "4", "odgovor": ["2", "DVE"]},
+11:{"tip": "tip_0", "vprasanje": "Kdo odbija odbitke, v primeru ko glasba ni v skladu s pravilnikom?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["D1"]},
+12:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovalka uporabi dodatno glasbo s petjem?", "primer_odg": "0.01", "odgovor": ["1.00", "1"]},
+13:{"tip": "tip_0", "vprasanje": "Kdo sodi težine s telesom in plesne korake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["D1,D2", "D2,D1"]},
+14:{"tip": "tip_0", "vprasanje": "Kdo sodi rizike in težine z rekvizitom?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["D3,D4", "D4,D3"]},
+15:{"tip": "tip_0", "vprasanje": "Kdo sodi artistične komponente sestave?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E1,E2", "E2,E1"]},
+16:{"tip": "tip_0", "vprasanje": "Kdo sodi izvedbene napake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E3,E4,E5,E6"]}, 
+17:{"tip": "tip_0", "vprasanje": "Na kateri del ocene se lahko pritoži trener?", "primer_odg": "D, E", "odgovor": ["D"]},
+18:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za prestop'?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
+19:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neustrezen rekvizit'?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
+20:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovani dres ne ustreza zahtevam?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
+21:{"tip": "tip_0", "vprasanje": "Ali lahko tekmovalke med sestavo komunicirajo?", "primer_odg": "da", "odgovor": ["NE"]},
+22:{"tip": "tip_0", "vprasanje": "Ali trener med izvajanjem sestave lahko podaja napotke tekmovalki?", "primer_odg": "ne", "odgovor": ["NE"]},
+23:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če trenerka nakaže vajo tekmovalkam, med tem ko le-te tekmujejo?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
+24:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če ima tekmovalka nekožnate bandaže?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]}
 }
 
 #========================================================================================================================================
@@ -106,6 +106,7 @@ riziki = {1:{"tip": "tip_2",
  "mozni_odg": ["3 rotacije", "4 rotacije", "5 rotacij", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "],
  "video": "https://www.youtube.com/embed/VKiOTntDlFM?autoplay=0"}
 }
+
 
 
 
