@@ -3,6 +3,7 @@
 #===========================================================================================
 import model
 import bottle
+from bottle import error
 
 kviz = model.Kviz()
 @bottle.get("/")
@@ -33,6 +34,27 @@ def ugibaj():
         odgovor = bottle.request.forms.getunicode("odgovor")
     kviz.ugibaj(id_igre, odgovor)
     return bottle.redirect("/igra/")
+
+@error(404)
+def error404(error):
+    return bottle.template("error.tpl")
+
+@error(400)
+def error400(error):
+    return bottle.template("error.tpl")
+
+@error(500)
+def error500(error):
+    return bottle.template("error.tpl")
+
+@error(501)
+def error501(error):
+    return bottle.template("error.tpl")
+
+@error(505)
+def error505(error):
+    return bottle.template("error.tpl")
+
 
     
 
