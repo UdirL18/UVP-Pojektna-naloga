@@ -94,29 +94,26 @@
    <!--VEČ PRAVILNIH ODGOVOROV -->
     % elif igra.trenutno_vprasanje().get("tip") == "tip_2": 
 
-        <div id="video">
-          <iframe width="920" height="580" src={{igra.trenutno_vprasanje().get("video")}} 
-            frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
-          </iframe>
-        </div>  
+    <div id="video">
+      <iframe width="920" height="580" src={{igra.trenutno_vprasanje().get("video")}} 
+        frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen >
+      </iframe>
+    </div>  
 
-        <blockquote>
-        
-        <form action="/igra/" method="post">
-          %for slovar_vpr in igra.trenutno_vprasanje().get("vprasanje"):
-            <h4>{{slovar_vpr.get("vpr")}}</h4> 
-              % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
-                <div id="mozniOdgovori2">
-                  <input type="checkbox" name="odgovor" value="{{odg}}"> {{odg}} <br>
-                </div>
-              %end
-          % end        
-          <button type="submit">Odgovori</button>
-        </form>
-        
-        <h4> Še enkrat preverite odgovore, drugače boste morali ponovno rešiti nalogo. </h4>
-        
-        </blockquote>                  
+    <blockquote>
+    <form action="/igra/" method="post">
+      <!-- ... in [(0, {'vpr':'','odg':[]}), (1, {'vpr':'','odg':[]})]-->
+      %for i, slovar_vpr in enumerate(igra.trenutno_vprasanje().get("vprasanje")): 
+        <h4>{{slovar_vpr.get("vpr")}}</h4> 
+
+          % for odg in igra.trenutno_vprasanje().get("mozni_odg"):
+              <input type="checkbox" name="odgovor_{{i}}" value="{{odg}}"> {{odg}} <br>
+          %end
+      % end
+      <h4> Še enkrat preverite odgovore, drugače boste morali ponovno rešiti nalogo. </h4>
+      <button type="submit">Odgovori</button>
+      </form>
+    </blockquote>                  
 
     % end
 
