@@ -1,6 +1,9 @@
 import random
 from vprasanja import slovar, vprasanja_multiple_izbire, riziki 
 
+#======================================================================================
+#Definicija konstant
+#======================================================================================
 STEVILO_DOVOLJENIH_NAPAK = 5 
 STEVILO_PRAVILNIH = 9
 STEVILO_KVIZ_MULTIPLE = 4
@@ -14,6 +17,9 @@ ZACETEK = "S"
 KVIZ_MULTIPLE = "M"
 KVIZ_RIZIKI = "R"
 
+#=============================================================================================
+#Razred Igra
+#=============================================================================================
 class Igra:
     def __init__(self, st_vprasanj):
         self.trenutno_vprasanje_idx = 0
@@ -25,11 +31,11 @@ class Igra:
     def trenutno_vprasanje(self):
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             # želim da izpiše vseh 5 (oz 4) vprašanja
-            vpr_riz = int(self.vprasanja_riziki[0]) # vrne npr 1
-            return riziki.get(vpr_riz) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
+            vpr_2 = int(self.vprasanja_riziki[0]) # vrne npr 1
+            return riziki.get(vpr_2) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
         if self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI):
-            vpr_mul = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
-            return vprasanja_multiple_izbire.get(vpr_mul) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': '0.4', 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
+            vpr_1 = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
+            return vprasanja_multiple_izbire.get(vpr_1) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': '0.4', 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
         else:
             vpr_0 = self.vprasanja[self.trenutno_vprasanje_idx] #vrne npr 4
             return slovar.get(vpr_0) #{'tip': 'tip_0', 'vprasanje': '?', 'primer_odg':'', 'odgovor': ''}
@@ -52,6 +58,7 @@ class Igra:
     def poraz(self):
         return self.stevilo_napacnih() > STEVILO_DOVOLJENIH_NAPAK
 
+## uredi ker imaš dvakrat za brez veze if za isto stvar
     def enakost_odgovorov(self, odgovor):
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             seznam_vpr = self.trenutno_vprasanje().get('vprasanje') # [{'vpr':'','odg':[]}, {vpr:odg}, ...]
@@ -63,9 +70,12 @@ class Igra:
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne list 
         self.trenutno_vprasanje_idx += 1
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
-            #iz serverja odgovori: [['','','',],[odgovori_na_eno_vpr],[]].
-            for odg_na_eno_vpr in odgovor:
-                return odg_na_eno_vpr == pravilen_odgovor                
+            #iz serverja odgovori: [('odgovor_0', '2 rotaciji'), ('odgovor_1', '3 rotacije')]
+            #samo_odgovori = []
+            #for polje, vrednost in odgovor:
+                #samo_odgovori.append(vrednost) #['2 rotaciji', '3 rotacije']
+            #return samo_odgovori == pravilen_odgovor                       
+            return odgovor == enumerate(pravilen_odgovor)
         elif self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI):
             return odgovor == pravilen_odgovor #vrne True  
         else:             
@@ -90,11 +100,16 @@ class Igra:
                 return PORAZ
             return NAPACEN_ODGOVOR
 
-
+#===========================================================================================
+#Funkcija, ki vrne novo igro.
+#===========================================================================================
 def nova_igra():
     return Igra(STEVILO_PRAVILNIH + STEVILO_DOVOLJENIH_NAPAK)
 # STEVILO_PRAVILNIH + STEVILO_DOVOLJENIH_NAPAK ne sme biti večje od št vprašanj v slovarjih
 
+#================================================================================================
+#Razred Kviz
+#================================================================================================
 class Kviz:
     def __init__(self):
         self.igre = {}
