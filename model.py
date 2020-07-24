@@ -62,8 +62,10 @@ class Igra:
     def enakost_odgovorov(self, odgovor):
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             seznam_vpr = self.trenutno_vprasanje().get('vprasanje') # [{'vpr':'','odg':[]}, {vpr:odg}, ...]
-            for slovar_vpr in seznam_vpr:
-                pravilen_odgovor = slovar_vpr.get("odg")
+        pravilen_odgovor = []
+        for slovar_vpr in vpr:
+            pravilen_odg_na_eno_vpr = slovar_vpr.get('odg')
+            pravilen_odgovor.append(pravilen_odg_na_eno_vpr) #[['3 rotacije', 'takojšen odboj / ponovni met '], [za 2 vpr], [za 3 vpr], ...] 
             self.trenutno_vprasanje_idx += 1
             #iz serverja odgovori: [('odgovor_0', '2 rotaciji'), ('odgovor_1', '3 rotacije')]
             samo_odgovori = []
@@ -130,3 +132,4 @@ class Kviz:
         igra = self.igre[id_igre][0] 
         stanje = igra.ugibaj(odgovor)
         self.igre[id_igre] = (igra, stanje) # stanje "R", "M", "W", "X" in "0", "-", "+"
+
