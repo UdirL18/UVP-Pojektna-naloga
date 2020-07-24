@@ -1,7 +1,6 @@
 # **Projektna naloga pri predmetu Uvod v programiranje**
 
-Pri predmetu Uvod v programiranje sem za projektno nalogo izdelala **Kviz o ritmični gimnastiki**. Idejo za projekt sem dobila iz vse večje prisotnosti elektronskega sojenja na tekmmovanjih. Kviz je namenjen sodnicam začetnicam, tekmovalkam in ljubiteljem tega športa.
-
+Pri predmetu Uvod v programiranje sem za projektno nalogo izdelala **Kviz o ritmični gimnastiki**. Idejo za projekt sem dobila iz vse večje prisotnosti elektronskega sojenja na tekmmovanjih. 
 Program preverja znanje [F.I.G](https://www.gymnastics.sport/site/discipline.php?disc=4) pravilnika in ponuja tri tipe nalog. 
 - **Vprašanja z opisnimi odgovori** preverjajo znanje poglavja *GENERALITIES*. Igralec lahko vpiše odgovore tako z malimi kot velikimi začetnicami, s presledki ali brez, številske odgovore pa lahko vpiše z dvema decimalkama ali le z eno. V primeru, ko igralec pravilno odgovori na **štiri** vprašanja mu program ponudi nov tip vprašanj.
 - **Vprašanja multiple izbire** preverjajo znanje težin s telesom. Igralec mora **štirikrat** uspešno izbrati pravilen odgovor, da lahko napreduje na naslednji tip vprašanj.
