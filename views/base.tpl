@@ -3,9 +3,10 @@
 
 <head>
     <title>{{title}} </title>
-    <a href="https://www.gymnastics.sport/site/discipline.php?disc=4">
+    <a href="https://www.gymnastics.sport/site/discipline.php?disc=4" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/International_Federation_of_Gymnastics.svg/180px-International_Federation_of_Gymnastics.svg.png" 
     width=12% height=12% style="float: right"> </a>
+
 
     <style>
         body {

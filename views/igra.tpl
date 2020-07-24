@@ -2,13 +2,13 @@
 %rebase("base.tpl", title="Kviz")
 
   <h1>Kviz 
-    <a href="https://www.gymnastics.sport/publicdir/rules/files/en_RG%20CoP%202017-2020%20with%20Errata%20Dec.%2017.pdf">
+    <a href="https://www.gymnastics.sport/publicdir/rules/files/en_RG%20CoP%202017-2020%20with%20Errata%20Dec.%2017.pdf" target="_blank">
       <img src="https://image.slidesharecdn.com/codigo20132016-120327205544-phpapp02/95/code-of-pointsgr-2013-2016-english-1-728.jpg?cb=1333531041" 
-      width=8% height=8% style="float: left">
+      width=8% height=10% style="float: left">
     </a>
   </h1>
 
-  <h4> Pokukajte v pravilnik. </h4>
+  <h6> Pokukajte v pravilnik.</h6>
 
 
 %if poskus == model.ZMAGA:
