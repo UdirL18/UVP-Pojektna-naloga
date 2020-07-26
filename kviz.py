@@ -28,33 +28,35 @@ def ugibaj():
     id_igre = int(bottle.request.get_cookie("idigre").split("e")[1])
     # if stanje == 'R'
     if kviz.igre[id_igre][1] == model.KVIZ_RIZIKI: 
+    #print("test1") #test ali je prav nastavljen pogoj?? 
         #odgovori tip_2 # vrednost for ključ, vrednost in [('k', 'v1'), ('k', 'v2'),..] v1 so vsi odgovori na eno vpr
         odgovor = [(polje, vrednost) for polje, vrednost in bottle.request.forms.allitems()] #[('odgovor_0', '3 rotacije'), ('odgovor_1', '3 rotacije'), ('odgovor_2', 'met z rotacijo okoli svoje osi (diametralni met)'), ('odgovor_3', '4 rotacije'), ('odgovor_4', 'met brez pomoči rok')]
     else:
         odgovor = bottle.request.forms.getunicode("odgovor")
+    #print(odgovor)  # print odgovora da vidiš v kakšni obliki ti vrne    
     kviz.ugibaj(id_igre, odgovor)
     return bottle.redirect("/igra/")
 
-##odkomentiraj ko bo vse delao
-#@error(404)
-#def error404(error):
-#    return bottle.template("error.tpl")
+#odkomentiraj ko bo vse delao
+@error(404)
+def error404(error):
+    return bottle.template("error.tpl")
 
-#@error(400)
-#def error400(error):
-#    return bottle.template("error.tpl")
+@error(400)
+def error400(error):
+    return bottle.template("error.tpl")
 
-#@error(500)
-#def error500(error):
-#    return bottle.template("error.tpl")
+@error(500)
+def error500(error):
+    return bottle.template("error.tpl")
 
-#@error(501)
-#def error501(error):
-#    return bottle.template("error.tpl")
+@error(501)
+def error501(error):
+    return bottle.template("error.tpl")
 
-#@error(505)
-#def error505(error):
-#    return bottle.template("error.tpl")
+@error(505)
+def error505(error):
+    return bottle.template("error.tpl")
 
 
     
