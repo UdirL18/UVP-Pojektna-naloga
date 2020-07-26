@@ -32,7 +32,7 @@ class Igra:
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             # želim da izpiše vseh 5 (oz 4) vprašanja
             vpr_2 = int(self.vprasanja_riziki[0]) # vrne npr 1
-            return riziki.get(2) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
+            return riziki.get(vpr_2) # vrne {"tip": "tip_2", "vprasanje": [{'vpr':'', 'odg': [odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}
         if self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI):
             vpr_1 = self.vprasanja_mul[self.trenutno_vprasanje_idx] #vrne npr 18
             return vprasanja_multiple_izbire.get(vpr_1) #{'tip': 'tip_1', 'vprasanje': 'Koliko je vredna težina na sliki 18?', 'odgovor': '0.4', 'mozni_odg': [0.4, 0.5, 0.6], 'slika': 'http'}
@@ -58,19 +58,23 @@ class Igra:
     def poraz(self):
         return self.stevilo_napacnih() > STEVILO_DOVOLJENIH_NAPAK
 
-## uredi ker imaš dvakrat za brez veze if za isto stvar
     def enakost_odgovorov(self, odgovor):
         if self.pravilni_odgovori >= STEVILO_KVIZ_RIZIKI:
             seznam_vpr = self.trenutno_vprasanje().get('vprasanje') # [{'vpr':'','odg':[]}, {vpr:odg}, ...]
-        pravilen_odgovor = []
-        for slovar_vpr in vpr:
-            pravilen_odg_na_eno_vpr = slovar_vpr.get('odg')
-            pravilen_odgovor.append(pravilen_odg_na_eno_vpr) #[['3 rotacije', 'takojšen odboj / ponovni met '], [za 2 vpr], [za 3 vpr], ...] 
+            pravilen_odgovor = []
+            for slovar_vpr in seznam_vpr:
+                for odg in slovar_vpr.get('odg'):
+                    pravilen_odgovor.append(odg)
             self.trenutno_vprasanje_idx += 1
             #iz serverja odgovori: [('odgovor_0', '2 rotaciji'), ('odgovor_1', '3 rotacije')]
             samo_odgovori = []
             for polje, vrednost in odgovor:
                 samo_odgovori.append(vrednost) #['2 rotaciji', '3 rotacije']
+            #za preverjanje
+            #print('test_2')
+            #print(samo_odgovori)
+            #print('test_3')
+            #print(pravilen_odgovor)    
             return samo_odgovori == pravilen_odgovor                                       
         if self.pravilni_odgovori in range(STEVILO_KVIZ_MULTIPLE, STEVILO_KVIZ_RIZIKI): 
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne npr 0.4
@@ -79,10 +83,11 @@ class Igra:
         else: 
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne list
             self.trenutno_vprasanje_idx += 1 
+
+            print("test2")
             return any(x.upper().replace(" ","") == odgovor.upper().replace(" ","") for x in pravilen_odgovor) 
             #odgovorom, ki pridejo iz serverja ostranim space in jih dam v velike črke, 
             #to naredim še za odgovore iz slovarja, če bo kdo slučajno kdaj dodajal vprašanja
-
 
 
     def ugibaj(self, odgovor):
