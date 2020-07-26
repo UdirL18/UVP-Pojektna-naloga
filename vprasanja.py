@@ -1,7 +1,6 @@
 #==============================================================================================
 # VPRAŠANJA OPISNIH ODGOVOROV
 #==============================================================================================
-## ostrani obroč, žoga, kiji, trak in E1, E4, E5, E6.
 slovar = {1:{"tip":"tip_0", "vprasanje": "Kolikšna je dolžina induvidualne sestave?", "primer_odg": "m:ss-m:ss", "odgovor": ["1:15-1:30"]},
 2:{"tip": "tip_0", "vprasanje": "Kakšen je trenutni program za induvidualne tekmovake?", "primer_odg": "Naštej rekvizite po vrsti, kot se tekmujejo na F.I.G. tekmovanjih.", "odgovor": ["OBROČ,ŽOGA,KIJI,TRAK"]}, 
 3:{"tip": "tip_0", "vprasanje": "Kolikšna je dolžina skupinske sestave?", "primer_odg": "m:ss - m:ss", "odgovor": ["2:15-2:30"]},
@@ -16,16 +15,15 @@ slovar = {1:{"tip":"tip_0", "vprasanje": "Kolikšna je dolžina induvidualne ses
 12:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovalka uporabi dodatno glasbo s petjem?", "primer_odg": "0.01", "odgovor": ["1.00", "1"]},
 13:{"tip": "tip_0", "vprasanje": "Kdo sodi težine s telesom in plesne korake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["D1,D2", "D2,D1"]},
 14:{"tip": "tip_0", "vprasanje": "Kdo sodi rizike in težine z rekvizitom?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["D3,D4", "D4,D3"]},
-15:{"tip": "tip_0", "vprasanje": "Kdo sodi artistične komponente sestave?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E1,E2", "E2,E1"]},
-16:{"tip": "tip_0", "vprasanje": "Kdo sodi izvedbene napake?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E3,E4,E5,E6"]}, 
-17:{"tip": "tip_0", "vprasanje": "Na kateri del ocene se lahko pritoži trener?", "primer_odg": "D, E", "odgovor": ["D"]},
-18:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za prestop'?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
-19:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neustrezen rekvizit'?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
-20:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovalni dres ne ustreza zahtevam?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
-21:{"tip": "tip_0", "vprasanje": "Ali lahko tekmovalke med sestavo komunicirajo?", "primer_odg": "da", "odgovor": ["NE"]},
-22:{"tip": "tip_0", "vprasanje": "Ali trener med izvajanjem sestave lahko podaja napotke tekmovalki?", "primer_odg": "ne", "odgovor": ["NE"]},
-23:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če trenerka nakaže vajo tekmovalkam, med tem ko le-te tekmujejo?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
-24:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če ima tekmovalka nekožnate bandaže?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]}
+15:{"tip": "tip_0", "vprasanje": "Kdo sodi artistične komponente sestave?", "primer_odg": "D1, D2, D3, D4, E1, E2, E3, E4, E5, E6", "odgovor": ["E1,E2", "E2,E1"]}, 
+16:{"tip": "tip_0", "vprasanje": "Na kateri del ocene se lahko pritoži trener?", "primer_odg": "D, E", "odgovor": ["D"]},
+17:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za prestop'?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
+18:{"tip": "tip_0", "vprasanje": "Kolikšen je 'odbitek za neustrezen rekvizit'?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
+19:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, v primeru ko tekmovalni dres ne ustreza zahtevam?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]},
+20:{"tip": "tip_0", "vprasanje": "Ali lahko tekmovalke med sestavo komunicirajo?", "primer_odg": "da", "odgovor": ["NE"]},
+21:{"tip": "tip_0", "vprasanje": "Ali trener med izvajanjem sestave lahko podaja napotke tekmovalki?", "primer_odg": "ne", "odgovor": ["NE"]},
+22:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če trenerka nakaže vajo tekmovalkam, med tem ko le-te tekmujejo?", "primer_odg": "0.10", "odgovor": ["0.50", "0.5"]},
+23:{"tip": "tip_0", "vprasanje": "Kolikšen je odbitek, če ima tekmovalka nekožnate bandaže?", "primer_odg": "0.10", "odgovor": ["0.30", "0.3"]}
 }
 
 #========================================================================================================================================
@@ -76,34 +74,34 @@ vprasanja_multiple_izbire = {1:{"tip":"tip_1", "vprasanje": "Koliko je vredna te
 # riziki = {1:{"tip": "tip_2", "vprasanje": [{vpr:[odg]}, {:[]}, ], "mozni_odg": [], "video": "https"}, 2: ...}
 
 riziki = {1:{"tip": "tip_2",
- "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["3 rotacije", "položni met", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na peti rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "]}],
- "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "položni met", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "],
+ "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["3 rotacije", "polozni met", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na peti rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "]}],
+ "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "polozni met", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "],
  "video": "https://www.youtube.com/embed/mdlKiwK6biI?autoplay=0"},
  2:{"tip": "tip_2",
- "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["3 rotacije", "takojšen odboj / ponovni met "]},
- {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["2 rotaciji", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok"]},
- {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["2 rotaciji", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok"]}],
- "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v eno roko", "ujem v rotacijo ", "takojšen odboj / ponovni met"],
+ "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["3 rotacije", "takojsen odboj / ponovni met"]},
+ {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["2 rotaciji", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok"]},
+ {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["2 rotaciji", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok"]}],
+ "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v eno roko", "ujem v rotacijo ", "takojsen odboj / ponovni met"],
  "video": "https://www.youtube.com/embed/ZIIFPo_LkNc?autoplay=0"},
  3:{"tip": "tip_2",
- "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi"]},
-  {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "sprememba nivoja in/ali osi", "ujem brez pomoči rok"]},
-  {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["2 rotaciji", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "met dveh kijev"]},
-  {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["3 rotacije", "met dveh kijev", "sprememba novoja/osi"]},
-  {"vpr": "Kateri kriteriji se nanašajo na peti rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met brez pomoči rok", "sprememba nivoja in/ali osi"]}],
- "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoči rok", "met dveh kijev", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "],
+ "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi"]},
+  {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "sprememba nivoja in/ali osi", "ujem brez pomoci rok"]},
+  {"vpr": "Kateri kriteriji se nanašajo na tretji rizik?", "odg": ["2 rotaciji", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "met dveh kijev"]},
+  {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["3 rotacije", "met dveh kijev", "sprememba nivoja in/ali osi"]},
+  {"vpr": "Kateri kriteriji se nanašajo na peti rizik?", "odg": ["3 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met brez pomoci rok", "sprememba nivoja in/ali osi"]}],
+ "mozni_odg": ["2 rotaciji", "3 rotacije", "4 rotacije", "met z rotacijo okoli svoje osi (diametralni met)", "met izven vidnega polja", "met brez pomoci rok", "met dveh kijev", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo "],
  "video": "https://www.youtube.com/embed/wP5e27_0v04?autoplay=0"},
  4:{"tip": "tip_2",
  "vprasanje": [{"vpr": "Kateri kriteriji se nanašajo na prvi rizik?", "odg": ["5 rotacij", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo"]},
- {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["4 rotacije", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo "]},
- {"vpr": "Kateri kriteriji se nanašajo na tretji rizik (v primeru dobre izvedbe)?", "odg": ["4 rotacije", "met izven vidnega polja", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo "]},
+ {"vpr": "Kateri kriteriji se nanašajo na drugi rizik?", "odg": ["4 rotacije", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo"]},
+ {"vpr": "Kateri kriteriji se nanašajo na tretji rizik (v primeru dobre izvedbe)?", "odg": ["4 rotacije", "met izven vidnega polja", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem v rotacijo"]},
  {"vpr": "Kateri kriteriji se nanašajo na četrti rizik?", "odg": ["3 rotacije", "sprememba nivoja in/ali osi"]}],
- "mozni_odg": ["3 rotacije", "4 rotacije", "5 rotacij", "met izven vidnega polja", "met brez pomoči rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoči rok", "ujem v rotacijo "],
+ "mozni_odg": ["3 rotacije", "4 rotacije", "5 rotacij", "met izven vidnega polja", "met brez pomoci rok", "sprememba nivoja in/ali osi", "ujem izven vidnega polja", "ujem brez pomoci rok", "ujem v rotacijo"],
  "video": "https://www.youtube.com/embed/VKiOTntDlFM?autoplay=0"}
 }
 
