@@ -37,7 +37,6 @@ def ugibaj():
     kviz.ugibaj(id_igre, odgovor)
     return bottle.redirect("/igra/")
 
-#odkomentiraj ko bo vse delao
 @error(404)
 def error404(error):
     return bottle.template("error.tpl")
