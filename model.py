@@ -84,7 +84,6 @@ class Igra:
             pravilen_odgovor = self.trenutno_vprasanje().get("odgovor") # vrne list
             self.trenutno_vprasanje_idx += 1 
 
-            print("test2")
             return any(x.upper().replace(" ","") == odgovor.upper().replace(" ","") for x in pravilen_odgovor) 
             #odgovorom, ki pridejo iz serverja ostranim space in jih dam v velike črke, 
             #to naredim še za odgovore iz slovarja, če bo kdo slučajno kdaj dodajal vprašanja
