@@ -2,11 +2,11 @@
 
 Pri predmetu Uvod v programiranje sem za projektno nalogo izdelala **Kviz o ritmični gimnastiki**. Idejo za projekt sem dobila iz vse večje prisotnosti elektronskega sojenja na tekmmovanjih. 
 Program preverja znanje [F.I.G.](https://www.gymnastics.sport/site/discipline.php?disc=4) pravilnika in ponuja tri tipe nalog. 
-- **Vprašanja z opisnimi odgovori** preverjajo znanje poglavja *GENERALITIES*. Igralec lahko vpiše odgovore tako z malimi kot velikimi začetnicami, s presledki ali brez, številske odgovore pa lahko vpiše z dvema decimalkama ali le z eno. V primeru, ko igralec pravilno odgovori na **štiri** vprašanja mu program ponudi nov tip vprašanj.
+- **Vprašanja z opisnimi odgovori** preverjajo znanje poglavja *GENERALITIES*. Igralec lahko vpiše odgovore tako z malimi kot velikimi črkami, s presledki ali brez, številske odgovore pa lahko vpiše z dvema decimalkama ali le z eno. V primeru, ko igralec pravilno odgovori na **štiri** vprašanja mu program ponudi nov tip vprašanj.
 - **Vprašanja multiple izbire** preverjajo znanje težin s telesom. Igralec mora **štirikrat** uspešno izbrati pravilen odgovor, da lahko napreduje na naslednji tip vprašanj.
 - **Vprašanja večih pravilnih odgovorov** preverjajo znanje kriterijev pri dinamičnih elementih z rotacijo oziroma tako imenovanih rizikih. Igralec mora pravilno odgovoriti na vsa vprašanja, ki se nanašajo na sestavo iz posnetka.
 
-Igra se zaključi, ko igralec pravilno odgovori na **9** vprašanj, pri tem pa lahko napačno odgovori na **5** vprašanj. V primeru da se sproži *error* program igralcu prikaže stran, ki mu ponudi, da ponovno začne igro.
+Igra se zaključi, ko igralec pravilno odgovori na **9** vprašanj, pri tem pa lahko napačno odgovori na **5** vprašanj. V primeru, da se sproži *error* program igralcu prikaže stran, ki mu ponudi, da ponovno začne igro.
 
 ## Navodila za zagon programa
 Prenesite datoteke na tem repozitoriju in poženite *kviz.py* s pomočjo *Run Python File in Terminal*. V terminalu sledite povezavi: 
